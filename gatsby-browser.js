@@ -1,7 +1,13 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+const React = require("react")
+const { default: GlobalContextProvider } = require("./src/context/GlobalContextProvider")
 
-// You can delete this file if you're not using it
+
+exports.wrapRootElement = ({ element }) => {
+  return (
+   <GlobalContextProvider>
+{element}
+   </GlobalContextProvider>
+      
+   
+  )
+}

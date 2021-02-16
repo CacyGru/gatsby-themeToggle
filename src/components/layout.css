@@ -19,6 +19,16 @@ body {
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
 }
+
+.dark {
+  background: black;
+  color: antiquewhite;
+}
+
+.light {
+  background: grey;
+}
+
 article,
 aside,
 details,

@@ -1,8 +1,13 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, {useContext} from "react"
+import {GlobalDispatchContext, GlobalStateContext} from '../context/GlobalContextProvider'
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle }) =>{ 
+  const dispatch = useContext(GlobalDispatchContext)
+  const state =useContext(GlobalStateContext)
+  console.log(dispatch)
+  return(
   <header
     style={{
       background: `rebeccapurple`,
@@ -27,9 +32,11 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      {state.theme}
+      <button type="button" onClick={()=> {dispatch({type: 'TOGGLE_THEME'})}}>ToggleTheme</button>
     </div>
   </header>
-)
+)}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
