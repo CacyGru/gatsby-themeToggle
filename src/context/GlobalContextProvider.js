@@ -1,4 +1,4 @@
-import React, {useReducer, createContext} from 'react'
+import React, {useReducer, createContext, useEffect} from 'react'
 
 // Context
 // split State & Dispatch into two Prooviders
@@ -21,10 +21,14 @@ const reducer = (state, action) => {
             throw new Error('Error')
     }
 }
-const initialState = {theme: 'light'}
+const initialState = {theme: localStorage.getItem('theme') ? localStorage.getItem('theme') : 'dark'}
 
 const GlobalContextProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState)
+   useEffect(() => {
+      
+       return ( localStorage.setItem('theme', state.theme)) 
+   }, [state])
     return (
         <GlobalDispatchContext.Provider value={dispatch}>
             <GlobalStateContext.Provider value={state}>

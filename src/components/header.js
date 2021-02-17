@@ -6,7 +6,7 @@ import {GlobalDispatchContext, GlobalStateContext} from '../context/GlobalContex
 const Header = ({ siteTitle }) =>{ 
   const dispatch = useContext(GlobalDispatchContext)
   const state =useContext(GlobalStateContext)
-  console.log(dispatch)
+  
   return(
   <header
     style={{
